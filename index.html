@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compostos Naturais Bioativos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a6741 0%, #2d4a22 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .keywords-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #4a6741;
+        }
+
+        .keywords-section h2 {
+            color: #2d4a22;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .keyword:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #4a6741;
+        }
+
+        .section h2 {
+            color: #2d4a22;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            color: #4a6741;
+            margin: 20px 0 15px 0;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section h4 {
+            color: #5a7c50;
+            margin: 15px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #f0d000;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .highlight-box strong {
+            color: #856404;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .classification-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .classification-table th {
+            background: linear-gradient(135deg, #4a6741, #2d4a22);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .classification-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .classification-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .compound-group {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .examples {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .subgroup {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #ddd;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .summary-section h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        .summary-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-points li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .summary-points li::before {
+            content: "🌿";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .keywords {
+                justify-content: center;
+            }
+            
+            .classification-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Compostos Naturais Bioativos</h1>
+            <p>Química dos Produtos Naturais - Metabólitos Secundários e suas Aplicações</p>
+        </div>
+
+        <div class="content">
+            <div class="keywords-section">
+                <h2>Keywords</h2>
+                <div class="keywords">
+                    <span class="keyword">Metabólitos secundários</span>
+                    <span class="keyword">Compostos fenólicos</span>
+                    <span class="keyword">Flavonoides</span>
+                    <span class="keyword">Taninos</span>
+                    <span class="keyword">Terpenos</span>
+                    <span class="keyword">Óleos essenciais</span>
+                    <span class="keyword">Glicosídeos</span>
+                    <span class="keyword">Alcaloides</span>
+                    <span class="keyword">Antioxidantes</span>
+                    <span class="keyword">Fitoterapia</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🌿</span>1. Metabólitos Secundários</h2>
+                <p>Compostos orgânicos produzidos por plantas com funções ecológicas específicas.</p>
+                
+                <div class="info-box">
+                    <strong>Função:</strong> Não são essenciais ao metabolismo primário (como crescimento), mas protegem a planta de predadores, microrganismos e radiação UV.
+                </div>
+
+                <p>Estrutura e produção são específicas por espécie, muitas vezes com efeitos fisiológicos em humanos.</p>
+
+                <h3>Classificação em 3 grandes grupos:</h3>
+                <div class="compound-group">
+                    <h4><span class="emoji">🧪</span> Fenólicos</h4>
+                    <h4><span class="emoji">🌸</span> Terpenos</h4>
+                    <h4><span class="emoji">⚗️</span> Compostos nitrogenados</h4>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🧪</span>2. Compostos Fenólicos</h2>
+                <div class="highlight-box">
+                    <strong>Estrutura:</strong> anel aromático com pelo menos um grupo hidroxila (–OH)<br>
+                    <strong>Origem:</strong> via do ácido chiquímico<br>
+                    <strong>Atividades:</strong> antioxidante, antimicrobiana, cicatrizante, anti-inflamatória, antitumoral
+                </div>
+
+                <h3>Principais subgrupos:</h3>
+
+                <div class="subgroup">
+                    <h4>✔️ Ácidos fenólicos</h4>
+                    <div class="examples">
+                        Ex: ácido salicílico, cafeico, ferúlico<br>
+                        Conservantes, anti-inflamatórios, presentes em frutas, café, vinhos
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Cumarinas</h4>
+                    <div class="examples">
+                        Compostos aromáticos com ação antimicrobiana e fototóxica (ativadas por luz UV)<br>
+                        Ex: psoraleno, presente no óleo de bergamota
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Flavonoides <span class="emoji">🍇</span></h4>
+                    <p>Maior classe de fenólicos. Pigmentos, atrativos de polinizadores, proteção UV.</p>
+                    <div class="examples">
+                        <strong>Subgrupos:</strong><br>
+                        • Flavonas e Flavonóis (ex: quercetina, naringenina)<br>
+                        • Isoflavonas (ex: genisteína – fitoestrógeno)<br>
+                        • Antocianinas (ex: cianidina – coloração azul, roxa)
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Taninos <span class="emoji">🍷</span></h4>
+                    <p>Polímeros que se ligam a proteínas.</p>
+                    <div class="examples">
+                        <strong>Uso:</strong> curtimento de couro, antissépticos, cicatrizantes<br>
+                        <strong>Tipos:</strong> Hidrolisáveis (ex: ácido gálico) e Condensados (flavonoides polimerizados)
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Tocoferóis (Vitamina E) <span class="emoji">🥬</span></h4>
+                    <div class="examples">
+                        Lipossolúveis, antioxidantes potentes<br>
+                        Encontrados em óleos, sementes, folhas verdes
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Polifenóis <span class="emoji">💚</span></h4>
+                    <div class="examples">
+                        Estrutura com múltiplos grupos fenólicos<br>
+                        <strong>Benefícios:</strong> reduzem colesterol, lipogênese, peso corporal<br>
+                        <strong>Fontes:</strong> frutas vermelhas, chás, vinho, cacau
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🌸</span>3. Terpenos</h2>
+                <div class="info-box">
+                    <strong>Origem:</strong> Derivados da unidade isopreno (C₅H₈)<br>
+                    <strong>Produção:</strong> Via rota do ácido mevalônico (citoplasma) ou MEP (cloroplasto)<br>
+                    <strong>Usos:</strong> óleos essenciais, perfumes, repelentes, fármacos
+                </div>
+
+                <h3>Classificação:</h3>
+                <table class="classification-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Carbonos</th>
+                            <th>Exemplo</th>
+                            <th>Função</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monoterpenos <span class="emoji">🌿</span></td>
+                            <td>C₁₀</td>
+                            <td>limoneno, mentol</td>
+                            <td>Aromáticos, voláteis</td>
+                        </tr>
+                        <tr>
+                            <td>Sesquiterpenos <span class="emoji">🍃</span></td>
+                            <td>C₁₅</td>
+                            <td>β-cariofileno</td>
+                            <td>Anti-inflamatórios</td>
+                        </tr>
+                        <tr>
+                            <td>Diterpenos <span class="emoji">🌲</span></td>
+                            <td>C₂₀</td>
+                            <td>giberelinas, taxol</td>
+                            <td>Hormônios, anticâncer</td>
+                        </tr>
+                        <tr>
+                            <td>Triterpenos <span class="emoji">💊</span></td>
+                            <td>C₃₀</td>
+                            <td>estigmasterol</td>
+                            <td>Fitosteróis, saponinas</td>
+                        </tr>
+                        <tr>
+                            <td>Tetraterpenos <span class="emoji">🧡</span></td>
+                            <td>C₄₀</td>
+                            <td>β-caroteno, licopeno</td>
+                            <td>Pigmentos antioxidantes</td>
+                        </tr>
+                        <tr>
+                            <td>Politerpenos</td>
+                            <td>>C₄₀</td>
+                            <td>borracha natural</td>
+                            <td>Elastômeros</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="compound-group">
+                    <h4><span class="emoji">🌿</span> Óleos Essenciais (Terpenoides)</h4>
+                    <p>Mistura de compostos voláteis (mentol, linalol, cineol)</p>
+                    <div class="examples">
+                        <strong>Função:</strong> atrair polinizadores ou repelir pragas<br>
+                        <strong>Aplicações:</strong> cosméticos, fitoterápicos, alimentos
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">💊</span>4. Glicosídeos</h2>
+                <p>Formados por uma ligação glicosídica entre açúcar (glicona) e composto bioativo (aglicona).</p>
+                <div class="info-box">
+                    <strong>Função:</strong> Atuam no armazenamento e transporte de compostos ativos
+                </div>
+
+                <h3>Principais tipos:</h3>
+
+                <div class="subgroup">
+                    <h4>✔️ Saponinas <span class="emoji">🫧</span></h4>
+                    <div class="examples">
+                        Surfactantes (formam espuma), ação expectorante, anti-inflamatória e molusquicida
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Glicosídeos cardíacos <span class="emoji">❤️</span></h4>
+                    <div class="examples">
+                        Ex: digoxina (Digitalis purpurea)<br>
+                        Tratamento da insuficiência cardíaca congestiva (ICC)
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Cianogênicos <span class="emoji">☠️</span></h4>
+                    <div class="warning-box">
+                        Liberam cianeto (HCN) como mecanismo de defesa<br>
+                        Ex: mandioca, damasco, cereja
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Glucosinolatos <span class="emoji">🌶️</span></h4>
+                    <div class="examples">
+                        Compostos sulfurados presentes em brócolis, couve, mostarda<br>
+                        Aroma característico e ação antibacteriana
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="emoji">🧠</span>5. Compostos Nitrogenados – Alcaloides</h2>
+                <div class="highlight-box">
+                    <strong>Características:</strong> Compostos cíclicos nitrogenados com propriedades alcalinas<br>
+                    <strong>Produção:</strong> Retículo endoplasmático, armazenados em vacúolos<br>
+                    <strong>Ação:</strong> Intensa sobre o sistema nervoso central
+                </div>
+
+                <h3>Exemplos famosos:</h3>
+
+                <div class="subgroup">
+                    <h4>✔️ Morfina, Codeína <span class="emoji">💉</span></h4>
+                    <div class="examples">
+                        Derivadas do ópio, com ação analgésica potente
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Atropina, Escopolamina <span class="emoji">😵</span></h4>
+                    <div class="examples">
+                        Ação anticolinérgica, usadas em oftalmologia e sedação
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Cafeína <span class="emoji">☕</span></h4>
+                    <div class="examples">
+                        Derivada de purinas. Estimulante do SNC
+                    </div>
+                </div>
+
+                <div class="subgroup">
+                    <h4>✔️ Ioimbina, Estricnina <span class="emoji">🧬</span></h4>
+                    <div class="warning-box">
+                        Estimulantes potentes, com risco tóxico elevado
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-section">
+                <h2><span class="emoji">🧭</span>Sumário</h2>
+                <ul class="summary-points">
+                    <li>Metabólitos secundários são compostos não essenciais à sobrevivência da planta, mas fundamentais para defesa e interação ambiental.</li>
+                    <li>Compostos fenólicos têm atividade antioxidante e terapêutica, sendo amplamente distribuídos nas plantas.</li>
+                    <li>Terpenos derivam do isopreno e incluem óleos essenciais, pigmentos e compostos medicinais.</li>
+                    <li>Glicosídeos são estruturas bioativas formadas por açúcar + aglicona, com usos farmacológicos diversos.</li>
+                    <li>Alcaloides são compostos nitrogenados com efeito intenso sobre o SNC, muito usados na farmacologia moderna.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
